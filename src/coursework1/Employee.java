@@ -1,11 +1,13 @@
 package coursework1;
 
+import java.util.Objects;
+
 public class Employee {
     private String name; // ФИО сотрудника
     private int department; // Отдел, в котором работает сотрудник (Заполняется цифрами 1-5)
     private int salary; // Заработная плата сотрудника
     private int id;
-    static int idCount; // Переменная-счетчик, отвечающая за id сотрудника
+    public static int idCount; // Переменная-счетчик, отвечающая за id сотрудника
 
     public Employee(String name, int department, int salary) {
         this.id = ++idCount;
@@ -37,6 +39,7 @@ public class Employee {
         this.department = department;
     }
 
+
     public void setSalary(int salary) {
         this.salary = salary;
     }
@@ -44,5 +47,18 @@ public class Employee {
     @Override
     public String toString() {
         return "id = " + id + ", ФИО = " + name + ", отдел = " + department + ", зарплата = " + salary;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(name, employee.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
