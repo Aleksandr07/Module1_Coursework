@@ -7,7 +7,7 @@ public class Employee {
     private int department; // Отдел, в котором работает сотрудник (Заполняется цифрами 1-5)
     private int salary; // Заработная плата сотрудника
     private int id;
-    public static int idCount; // Переменная-счетчик, отвечающая за id сотрудника
+    static int idCount; // Переменная-счетчик, отвечающая за id сотрудника
 
     public Employee(String name, int department, int salary) {
         this.id = ++idCount;
